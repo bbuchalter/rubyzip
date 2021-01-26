@@ -83,7 +83,7 @@ module AssertEntry
   end
 
   def assert_entry(filename, zis, entry_name)
-    assert_equal(filename, entry_name)
+    assert_equal(filename.force_encoding('ascii-8bit'), entry_name)
     assert_entry_contents_for_stream(filename, zis, entry_name)
   end
 
