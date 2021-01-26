@@ -100,6 +100,8 @@ class TestZipFile
       file << binary_pattern << rand << "\0" while file.tell < 6E5
     end
 
+    File.open('test/data/generated/cp932_encoding_in_filename_表.txt', 'w') {}
+
     raise "failed to create test zip '#{TEST_ZIP2.zip_name}'" \
       unless system(
         "/usr/bin/zip -q #{TEST_ZIP2.zip_name} #{TEST_ZIP2.entry_names.join(' ')}"
@@ -148,6 +150,7 @@ class TestZipFile
       test/data/generated/empty_chmod640.txt
       test/data/generated/short.txt
       test/data/generated/longBinary.bin
+      test/data/generated/cp932_encoding_in_filename_表.txt
     ],
     'my zip comment'
   )
